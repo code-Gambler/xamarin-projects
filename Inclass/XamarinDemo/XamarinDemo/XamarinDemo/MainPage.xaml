@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinDemo.MainPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true">
+
+    <StackLayout>
+        <Label Text="Welcome to Events and Input App" FontSize="24"/>
+        <Label Text="Push the button to see a result" FontSize="20"/>
+        <Entry x:Name="txtName" Placeholder="Enter your name"/>
+        <Entry x:Name="txtAge" Placeholder="Enter your age" Keyboard="Numeric"/>
+        <Button Text="Click me!" Clicked="Button_Clicked"/>
+        <Label x:Name="lblResult" Text="" FontSize="20" />
+        <Label Text="Counting App" FontSize="30" HorizontalTextAlignment="Center"/>
+        <Label x:Name="lblCount" Text="99" FontSize="50" HorizontalTextAlignment="Center" TextColor="Red" Margin="0, 50, 0, 0"/>
+
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Count up!" Clicked="BtnCountUp_Clicked" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Count down!" Clicked="BtnCountDown_Clicked" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+
+        <Entry x:Name="count" Placeholder="Set initial value" Keyboard="Numeric"/>
+        <Button Text="Set Initial Value" Clicked="BtnInitialVal_Clicked" />
+
+        <Label x:Name="lblErr" TextColor="DarkRed" Margin="0, 40, 0, 0"/>
+    </StackLayout>
+</ContentPage>

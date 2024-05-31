@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UtilityBillsSteven.MainPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true">
+
+    <StackLayout Spacing="10" Margin="20, 0, 20, 0">
+        <Label Text="Utility Bill Calculator" FontSize="Title" Margin="0, 20, 0, 20" HorizontalTextAlignment="Center"/>
+        <Label Text="Choose Your Province" FontSize="Body" HorizontalTextAlignment="Start"/>
+        <Picker x:Name="picProvince" Title="Choose your province..." SelectedIndexChanged="picProvince_SelectedIndexChanged"/>
+        <Label Text="Daytime usage (kwh)" FontSize="Body" HorizontalTextAlignment="Start"/>
+        <Entry x:Name="enDaytimeUsage" Placeholder="Enter the daytime usage" Keyboard="Numeric"/>
+        <Label Text="Evening usage (kwh)" FontSize="Body" HorizontalTextAlignment="Start"/>
+        <Entry x:Name="enEveningUsage" Placeholder="Enter the evening usage" Keyboard="Numeric"/>
+        <StackLayout Orientation="{OnPlatform Android=Horizontal, iOS=Vertical}">
+            <Label Text="Did you use a renewable energy source?" FontSize="Body" HorizontalTextAlignment="Start"/>
+            <Switch x:Name="swUseRenewable" IsToggled="False"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button Text="Calculate" Clicked="CalculateBtn_Clicked" BackgroundColor="#b9f3fa"/>
+            <Button Text="Reset" Clicked="ResetBtn_Clicked" BackgroundColor="#b9f3fa"/>
+        </StackLayout>
+
+        <Button x:Name="btnError" Text="You must enter valid usage values." BackgroundColor="#ffd1d1" Margin="0, 10, 0, 0" IsVisible="False"/>
+
+        <Label x:Name="lblCharges" Text="Charges Breakdown" FontSize="Large" Margin="0, 20, 0, 20" HorizontalTextAlignment="Center" IsVisible="False"/>
+        <Label x:Name="lblDaytimeCharges" FontSize="Body" HorizontalTextAlignment="Start" IsVisible="False"/>
+        <Label x:Name="lblEveningCharges" FontSize="Body" HorizontalTextAlignment="Start" IsVisible="False"/>
+        <Label x:Name="lblTotalCharges" FontSize="Body" HorizontalTextAlignment="Start" IsVisible="False"/>
+        <Label x:Name="lblSalesTax" FontSize="Body" HorizontalTextAlignment="Start" IsVisible="False"/>
+        <Label x:Name="lblEnvRebate" FontSize="Body" HorizontalTextAlignment="Start" IsVisible="False"/>
+
+        <Button x:Name="btnGrandTotal" BackgroundColor="#fafab9" Margin="0, 10, 0, 0" IsVisible="False"/>
+
+    </StackLayout>
+
+</ContentPage>
