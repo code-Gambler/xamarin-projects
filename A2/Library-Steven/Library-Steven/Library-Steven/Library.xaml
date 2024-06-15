@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Library_Steven.Library"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             Title="Library">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Book List" FontSize="Title" HorizontalOptions="Center"/>
+            <Label x:Name="lblWelcome" FontSize="Large" HorizontalOptions="Center"/>
+            <ListView x:Name="lvBooks"
+                  ItemSelected="lvBooks_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Checkout" Clicked="Checkout_Clicked" CommandParameter="{Binding .}"/>
+                                <MenuItem Text="Return" Clicked="Return_Clicked" CommandParameter="{Binding .}"/>
+                            </ViewCell.ContextActions>
+                            <StackLayout Padding="15, 0" Spacing="2">
+                                <Label Text="{Binding Title}" TextColor="#1225a1"/>
+                                <Label Text="{Binding Author}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button x:Name="btnStatusBar" BackgroundColor="#fadb6b" IsVisible="false"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
